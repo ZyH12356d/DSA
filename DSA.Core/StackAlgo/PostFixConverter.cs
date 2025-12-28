@@ -31,31 +31,37 @@ namespace DSA.Core.StackAlgo
         }
         public bool isOperand(char c)
         {
-            if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9'))
-            {
-                return true;
-            }
-            return false;
+            return char.IsLetterOrDigit(c);
         }
         public string transform(string infix)
         {
-            if (infix == null || infix.Length == 0)
+
+            string postfix = string.Empty;
+            if(string.IsNullOrEmpty(infix))
             {
                 return infix;
             }
-            //Stack stack = new Stack();
-            //var postfix = "";
-            //for (int i = 0; i < infix.Length; i++)
-            //{ 
-            //    var c = infix[i];
-            //    if (isOperand(c)) 
-            //    {
+            Stack stack = new Stack();
+            
+            for (int i = 0; infix.Length > i; i++)
+            {
+                char c = infix[i];
+                if (isOperand(c))
+                {
+                    postfix += c;
+                }
+                else if (isOperator(c))
+                {
+                    stack.Push(c);
+                }
+            }
+            while (stack.Count > 0)
+            {
+                postfix += stack.Pop();
+            }
 
-            //    }
 
-
-            //}
-            return infix;
+            return postfix;
         }
     }
 }

@@ -10,15 +10,19 @@ namespace DSA.Tests.Stack
     public class PostFixTest
     {
         private PostFixConverter _postFixConverter = new PostFixConverter();
-        //public PostFixTest(PostFixConverter postFixConverter) 
-        //{ 
-        //    _postFixConverter = postFixConverter;
-        //}
+        
         [Fact]
         public void testEmpty()
         {
             Assert.Equal("", _postFixConverter.transform(""));
             Assert.Equal(null, _postFixConverter.transform(null));
+        }
+        [Fact]
+        public void testSimpleCase()
+        {
+            Assert.Equal("ab+", _postFixConverter.transform("a+b"));
+            Assert.Equal("ab*", _postFixConverter.transform("a*b"));
+            Assert.Equal("AB*", _postFixConverter.transform("A*B"));
         }
 
     }
