@@ -14,5 +14,11 @@ namespace DSA.Core.Recursion
                 return 1;
             return n * Factorial(n - 1);
         }
+        public static int getDigitSum(int i)
+        {
+            if (i < 10)
+                return i;
+            return (i % 10) + getDigitSum(i / 10);
+        }
     }
 }

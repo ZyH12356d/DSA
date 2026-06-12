@@ -19,6 +19,16 @@ namespace DSA.Tests.RecursionTest
             var result3 = Recursion.Factorial(1);
             Assert.Equal(1, result3);
         }
+        [Fact]
+        public void getDigitSumTest() 
+        {
+            var result = Recursion.getDigitSum(123);
+            Assert.Equal(6, result);
+            var result2 = Recursion.getDigitSum(0);
+            Assert.Equal(0, result2);
+            var result3 = Recursion.getDigitSum(9);
+            Assert.Equal(9, result3);
+        }
     }
 
 }
