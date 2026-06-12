@@ -1,0 +1,24 @@
+﻿using DSA.Core.Recursion;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DSA.Tests.RecursionTest
+{
+    public class RecursionTest
+    {
+        [Fact]
+        public void FactorialTest() 
+        {
+            var result = Recursion.Factorial(5);
+            Assert.Equal(120, result);
+            var result2 = Recursion.Factorial(0);
+            Assert.Equal(1, result2);
+            var result3 = Recursion.Factorial(1);
+            Assert.Equal(1, result3);
+        }
+    }
+
+}
